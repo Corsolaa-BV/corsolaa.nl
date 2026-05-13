@@ -1,1 +1,22 @@
-corsolaa.nl
+corsolaa.nl<br>
+<a href="https://github.com/Corsolaa/corsolaa.nl">Github ~ corsolaa.nl</a>
+<br>
+
+<!-- Script for deployment information -->
+<script>
+    fetch('version.json')
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+        })
+        .then(data => {
+            console.log('%c🚀 DEPLOYMENT INFO', 'background: #007bff;color: white;padding: 4px 8px;border-radius: 4px;font-weight: bold');
+            console.log('Version:     ', data.version || 'Not found...');
+            console.log('Commit:      ', data.commit || 'Not found...');
+            console.log('Build date:  ', data.date || 'Not found...');
+            console.log('Environment: ', data.environment || 'Not found...');
+        })
+        .catch(error => {
+            console.error('Error loading version info:', error);
+        });
+</script>
